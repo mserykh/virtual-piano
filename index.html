@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&amp;family=Open+Sans:wght@300;400;900&amp;display=swap">
+    <title>Virtual piano</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="header-title">Virtual Piano</h1>
+      </header>
+      <main class="main">
+        <div class="main-container">
+          <div class="button-container">
+            <button class="btn btn--notes">Notes</button>
+            <button class="btn btn--letters">Letters</button>
+          </div>
+          <div class="piano js-piano">
+            <div class="white-keys">
+              <div class="piano-key js-piano-key" data-letter="d" data-note="c"></div>
+              <div class="piano-key js-piano-key" data-letter="f" data-note="d"></div>
+              <div class="piano-key js-piano-key" data-letter="g" data-note="e"></div>
+              <div class="piano-key js-piano-key" data-letter="h" data-note="f"></div>
+              <div class="piano-key js-piano-key" data-letter="j" data-note="g"></div>
+              <div class="piano-key js-piano-key" data-letter="k" data-note="a"></div>
+              <div class="piano-key js-piano-key" data-letter="l" data-note="b"></div>
+            </div>
+            <div class="black-keys">
+              <div class="piano-key js-piano-key sharp" data-letter="r" data-note="c♯"></div>
+              <div class="piano-key js-piano-key sharp" data-letter="t" data-note="d♯"></div>
+              <div class="piano-key sharp none"></div>
+              <div class="piano-key js-piano-key sharp" data-letter="u" data-note="f♯"></div>
+              <div class="piano-key js-piano-key sharp" data-letter="i" data-note="g♯"></div>
+              <div class="piano-key js-piano-key sharp" data-letter="o" data-note="a♯"></div>
+            </div>
+            <button class="fullscreen" alt='Fullscreen'></button>
+          </div>
+      </main>
+      <footer class="footer">
+        <div class="footer-container">
+          <a href="#" class="footer_link github">github</a>
+          <a href="#" class="footer_link rss">RSschool</a>
+        </div>
+      </footer>
+      <script src="script.js"></script>
+</body>
+</html>
