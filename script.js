@@ -1,8 +1,10 @@
 const pianoElement = document.querySelector('.js-piano');
 
-pianoElement.addEventListener('click', onPianoClick);
-pianoElement.addEventListener('mouseover', removeTransition);
+pianoElement.addEventListener('mousedown', onPianoClick);
+pianoElement.addEventListener('mouseover', ensureHighlightState);
+pianoElement.addEventListener('mouseout', onMouseOut);
 window.addEventListener('keydown', onWindowKeyDown);
+window.addEventListener('keyup', onWindowKeyUp);
 
 function onWindowKeyDown(e) {
     const element = document.querySelector(`.js-piano-key[data-letter="${e.key}"]`);
@@ -13,6 +15,13 @@ function onWindowKeyDown(e) {
 
     highlightKey(element);
     playSound(src);
+}
+
+function onWindowKeyUp(e) {
+    const element = document.querySelector(`.js-piano-key[data-letter="${e.key}"]`);
+    if (!element) return;
+
+    removeHighlight(element);
 }
 
 function onPianoClick(e) {
@@ -31,13 +40,33 @@ function playSound(src) {
 }
 
 function highlightKey(element) {
-    if (element.classList.contains('piano-key--active')) {
-        element.classList.remove('piano-key--active');
-    }
     element.classList.add('piano-key--active');
 }
 
-function removeTransition(e) {
-    console.log(e);
-    // classList.remove('piano-key--active');
+function removeHighlight(element) {
+    element.classList.remove('piano-key--active');
+}
+
+function ensureHighlightState(e) {
+    let currentElem = null;
+    if (currentElem) return;
+
+    let target = e.target.closest('.js-piano-key');
+
+    if (!target) return;
+
+    currentElem = target;
+    
+}
+
+function onMouseOut(e) {
+    let currentElem = null;
+    if (currentElem) return;
+
+    let target = e.target.closest('.js-piano-key');
+
+    if (!target) return;
+
+    currentElem = target;
+    removeHighlight(target);
 }
